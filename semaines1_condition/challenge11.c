@@ -4,53 +4,36 @@
 
 int main()
 {
-  int heure1, heure2, minute1, minute2, second1, second2, k = 1;
-  printf("Sasiez le premier l'heure : ");
-  scanf("%d", &heure1);
-  printf("Sasiez le dexieume l'heure : ");
-  scanf("%d", &heure2);
-
-  printf("Sasiez le premier Minutes : ");
-  scanf("%d", &minute1);
-  printf("Sasiez le dexieume Minutes : ");
-  scanf("%d", &minute2);
-
-  printf("Sasiez le premier second : ");
-  scanf("%d", &second1);
-  printf("Sasiez le dexieume second : ");
-  scanf("%d", &second2);
-
-  if(heure1 > heure2){
-    k = 2;
-  }   
-  else if(heure1 == heure2 && minute1 > minute2){
-    k = 2;
+  int heure1, heure2, minute1, minute2, second1, second2;
+  printf("Saisez l'instant N1 sous forme HH/MM/SS : ");
+  scanf("%d:%d:%d", &heure1, &minute1, &second1);
+  printf("Saisez l'instant N2 sous forme HH/MM/SS : ");
+  scanf("%d:%d:%d", &heure2, &minute2, &second2);
+  if(heure1 < heure2){
+    printf("Le premier instant avant le deuxieme ");
+  } 
+  else if(heure1 > heure2){
+    printf("Le deuxieme instant vient avant le premier");
   }
-  else if(heure1 == heure2 && minute1 == minute2 && second1 > second2){
-    k = 2;
-  }
-  else {
-    k = 0;
-  }
-
-  switch(k){
-    case 0 :
-      printf("Il s'agit du meme instant.\n");
-      break;
-
-  case 1 :
-      printf("Le premier instant vient avant le deuxieme.\n");
-      break;
+  else if(heure1 == heure2){
+    if( minute1 < minute2){
+      printf("Le premier instant avant le deuxieme ");
+    }
+    else if( minute1 > minute2){
+      printf("Le deuxieme instant  avant le premier");
+    }
+    else if(minute1 == minute2){ 
       
-    case 2 : 
-      printf("Le deuxieme instant vient avant le premier.\n");
-      break;
-
-      default : 
-      printf("Error");
-      break
+      if(second1 < second2){
+        printf("Le premier instant avant le deuxieme ");
+      }
+      else if(second1 > second2){
+        printf("Le deuxieme instant vient avant le premier");
+      }
+      else{
+        printf("Il s'agit du meme instant");
+      }
+    }
   }
-
-  
-  return 0;
+  return 0 ;
 }
